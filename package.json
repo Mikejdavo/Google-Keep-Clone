@@ -1,20 +1,30 @@
 {
-    "name": "opening-the-modal4-13",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.html",
-    "scripts": {
-      "start": "parcel index.html --open",
-      "build": "parcel build index.html"
-    },
-    "dependencies": {
-      "parcel-bundler": "^1.6.1"
-    },
-    "devDependencies": {
-      "@babel/core": "7.2.0"
-    },
-    "resolutions": {
-      "@babel/preset-env": "7.13.8"
-    },
-    "keywords": []
-  }
+  "name": "modal-functionality",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html --open",
+    "build": "parcel build index.html"
+  },
+  "dependencies": {
+    "parcel-bundler": "^1.6.1"
+  },
+  "devDependencies": {
+    "@babel/core": "7.2.0"
+  },
+  "resolutions": {
+    "@babel/preset-env": "7.13.8"
+  },
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mikejdavo/Google-Keep-Clone.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mikejdavo/Google-Keep-Clone/issues"
+  },
+  "homepage": "https://github.com/Mikejdavo/Google-Keep-Clone#readme"
+}
