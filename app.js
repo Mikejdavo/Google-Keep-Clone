@@ -24,11 +24,13 @@ class App {
     this.$modalText = document.querySelector("#modal-text");
     this.$closeModalForm = document.querySelector("#modal-btn");
     this.$sidebar = document.querySelector(".sidebar");
-    this.$sidebarActiveItem = document.querySelector(".active-item")
+    this.$sidebarActiveItem = document.querySelector(".active-item");
 
     this.$app = document.querySelector("#app");
     this.$firebaseAuthContainer = document.querySelector("#firebaseui-auth-container");
     this.$app.style.display = "none";
+    this.$authUserText = document.querySelector(".auth-user");
+    this.$signoutButton = document.querySelector(".signout");
 
     // Initialize the FirebaseUI Widget using Firebase.
     this.ui = new firebaseui.auth.AuthUI(auth);
@@ -38,11 +40,19 @@ class App {
     this.displayNotes();
   }
  
+  handleSignout() {
+    this.$signOut = auth.signOut().then(() => {
+      this.redirectToAuth();
+    }).catch((error) => {
+      alert("ERROR OCCURRED")
+    });
+  };
 
 
   handleAuth() {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
+        this.$authUserText.innerHTML = user.displayName;
         this.redirectToApp();
       } else {
         this.redirectToAuth();
@@ -92,6 +102,12 @@ class App {
 
     this.$sidebar.addEventListener("mouseout", (event) => {
       this.handleToggleSidebar();
+    })
+
+    this.$signoutButton.addEventListener("click", (event) => {
+      this.handleSignout();
+      this.$app.style.display = "none";
+
     })
   }
 
