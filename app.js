@@ -26,8 +26,44 @@ class App {
     this.$sidebar = document.querySelector(".sidebar");
     this.$sidebarActiveItem = document.querySelector(".active-item")
 
+    this.$app = document.querySelector("#app");
+    this.$firebaseAuthContainer = document.querySelector("#firebaseui-auth-container");
+    this.$app.style.display = "none";
+
+    // Initialize the FirebaseUI Widget using Firebase.
+    this.ui = new firebaseui.auth.AuthUI(auth);
+    this.handleAuth();
+
     this.addEventListeners();
     this.displayNotes();
+  }
+ 
+
+
+  handleAuth() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.redirectToApp();
+      } else {
+        this.redirectToAuth();
+      }
+    });
+  }
+
+  redirectToApp() {
+    this.$firebaseAuthContainer.style.display = "none";
+    this.$app.style.display = "block";
+  }
+
+  redirectToAuth() {
+    this.$firebaseAuthContainer.style.display = "block";
+    this.$app.style.display = "auth";
+
+    this.ui.start('#firebaseui-auth-container', {
+      signInOptions: [
+        firebase.auth.EmailAuthProvider.PROVIDER_ID
+      ],
+    });
   }
 
   addEventListeners() {
@@ -233,4 +269,4 @@ class App {
   }
 }
 
-const app = new App();
+app = new App();
