@@ -67,7 +67,7 @@ class App {
 
   redirectToAuth() {
     this.$firebaseAuthContainer.style.display = "block";
-    this.$app.style.display = "auth";
+    this.$app.style.display = "none";
 
     this.ui.start('#firebaseui-auth-container', {
       signInOptions: [
