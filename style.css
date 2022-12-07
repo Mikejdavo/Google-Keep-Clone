@@ -21,6 +21,7 @@
 .tooltip {
   position: relative;
 }
+
 .tooltip-text {
   position: absolute;
   left: 0;
@@ -89,6 +90,16 @@ input:focus {
 
 .profile-actions-area {
   display: flex;
+}
+
+.profile-actions-area .tooltip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-user {
+  cursor: pointer;
 }
 
 /* MAIN SECTION STYLES */
